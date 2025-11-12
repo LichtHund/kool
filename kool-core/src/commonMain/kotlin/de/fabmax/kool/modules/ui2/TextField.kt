@@ -258,7 +258,7 @@ open class TextFieldNode(parent: UiNode?, surface: UiSurface)
         editText.caretPosition = textIndex(modifier.font, ev.position.x)
         editText.selectionStart = editText.caretPosition
 
-        if (ev.pointer.isLeftButtonClicked && ev.pointer.leftButtonRepeatedClickCount > 1) {
+        if (ev.pointer.isLeftButtonClicked && ev.pointer.leftButtonRepeatedClickCount > 1 && editText.text.isNotEmpty()) {
             // double click -> select clicked word
             editText.moveCaret(EditableText.MOVE_WORD_LEFT, false)
             // MOVE_WORD_LEFT moves the cursor past the separating space, skip that before we select the word
